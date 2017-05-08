@@ -1,0 +1,4 @@
+<Project>
+  <!-- hook into internal build targets -->
+  <Import Project="$([MSBuild]::GetDirectoryNameOfFileAbove($(MSBuildProjectDirectory), 'build\InternalBuildPipeline.targets'))\build\InternalBuildPipeline.targets" Condition="Exists($([MSBuild]::GetDirectoryNameOfFileAbove($(MSBuildProjectDirectory), 'build\InternalBuildPipeline.targets')))" />
+</Project>
