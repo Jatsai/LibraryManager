@@ -1,5 +1,4 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-    <Import Project="..\..\build\common.targets" />
 
     <PropertyGroup>
         <TargetFrameworks>netstandard1.5;net46</TargetFrameworks>
@@ -60,4 +59,5 @@
         </ItemGroup>
     </Target>
 
+    <Import Project="..\..\build\common.targets" />
 </Project>
