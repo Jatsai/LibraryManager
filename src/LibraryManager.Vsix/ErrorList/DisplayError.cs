@@ -3,6 +3,7 @@
 
 using Microsoft.VisualStudio.Imaging;
 using Microsoft.VisualStudio.Imaging.Interop;
+using Microsoft.VisualStudio.Shell.Interop;
 using Microsoft.Web.LibraryManager.Contracts;
 
 namespace Microsoft.Web.LibraryManager.Vsix
@@ -13,6 +14,7 @@ namespace Microsoft.Web.LibraryManager.Vsix
         {
             ErrorCode = error.Code;
             Description = error.Message;
+            Severity = ErrorListUtil.ToVSERRORCATEGORY(error.Code);
         }
 
         /// <summary>The error code is displayed in the Error List.</summary>
@@ -20,6 +22,9 @@ namespace Microsoft.Web.LibraryManager.Vsix
 
         /// <summary>A short description of the error.</summary>
         public string Description { get; }
+
+        /// <summary>Severity of the error.</summary>
+        public __VSERRORCATEGORY Severity { get; }
 
         /// <summary>A URL pointing to documentation about the error.</summary>
         public string HelpLink => string.Format(Constants.ErrorCodeLink, ErrorCode.ToLowerInvariant());
